@@ -6,16 +6,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.louay.taskcv.data.secondFragment.dto.DataRequest
 import com.louay.taskcv.databinding.FragmentSecondBinding
+import com.louay.taskcv.utils.UiState
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SecondFragment : Fragment() {
 
-    private lateinit var args: SecondFragmentArgs
     private lateinit var binding: FragmentSecondBinding
+    private val sfViewModel: SecondFragmentViewModel by viewModels()
     private val langList = mutableListOf<String>()
     private val hobbiesList = mutableListOf<String>()
+
+    private fun observe() {
+        sfViewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    Toast.makeText(requireContext(), state.data, Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_secondFragment_to_lastFragment)
+                    println("works")
+                }
+                is UiState.Error -> {
+                    Toast.makeText(requireActivity(), "Error saving data", Toast.LENGTH_SHORT)
+                        .show()
+                    println("oops")
+                }
+                is UiState.Loading -> {
+                    println("lol")
+                    Toast.makeText(requireActivity(), "Still saving", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,19 +56,19 @@ class SecondFragment : Fragment() {
                 Toast.makeText(context, "please check at least one lang/hobby", Toast.LENGTH_SHORT)
                     .show()
             } else {
-
-                val action = SecondFragmentDirections.actionSecondFragmentToLastFragment(
-                    args.name,
-                    args.email,
-                    args.age,
-                    args.gender,
-                    binding.androidBar.progress.toString(),
-                    binding.iosBar.progress.toString(),
-                    binding.flutterBar.progress.toString(),
-                    langList.toTypedArray(),
-                    hobbiesList.toTypedArray()
-                )
-                findNavController().navigate(action)
+                observe()
+                val dataRequest = DataRequest(
+                    binding.androidBar.progress,
+                    binding.iosBar.progress,
+                    binding.flutterBar.progress,
+                    langList.contains("Arabic"),
+                    langList.contains("English"),
+                    langList.contains("French"),
+                    hobbiesList.contains("Music"),
+                    hobbiesList.contains("Sports"),
+                    hobbiesList.contains("Games"),
+                    )
+                sfViewModel.saveData(dataRequest)
             }
         }
     }
@@ -78,7 +103,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentSecondBinding.inflate(inflater, container, false)
-        args = SecondFragmentArgs.fromBundle(requireArguments())
+        //args = SecondFragmentArgs.fromBundle(requireArguments())
         return binding.root
     }
 }

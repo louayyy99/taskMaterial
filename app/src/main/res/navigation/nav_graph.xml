@@ -22,48 +22,25 @@
         <action
             android:id="@+id/action_secondFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="email"
-            app:argType="string" />
-        <argument
-            android:name="age"
-            app:argType="string" />
-        <argument
-            android:name="gender"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/lastFragment"
         android:name="com.louay.taskcv.LastFragment"
         android:label="fragment_last"
-        tools:layout="@layout/fragment_last" >
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="email"
-            app:argType="string" />
-        <argument
-            android:name="age"
-            app:argType="string" />
-        <argument
-            android:name="gender"
-            app:argType="string" />
-        <argument
-            android:name="androidSkill"
-            app:argType="string" />
-        <argument
-            android:name="iosSkill"
-            app:argType="string" />
-        <argument
-            android:name="flutterSkill"
-            app:argType="string" />
-        <argument android:name="language"
-            app:argType="string[]" />
-        <argument android:name="hobby"
-            app:argType="string[]" />
-    </fragment>
+        tools:layout="@layout/fragment_last" />
+    <fragment
+        android:id="@+id/hobbiesFragment"
+        android:name="com.louay.taskcv.HobbiesFragment"
+        android:label="fragment_hobbies"
+        tools:layout="@layout/fragment_hobbies" />
+    <fragment
+        android:id="@+id/skillsFragment"
+        android:name="com.louay.taskcv.SkillsFragment"
+        android:label="fragment_skills"
+        tools:layout="@layout/fragment_skills" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.louay.taskcv.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
 </navigation>
