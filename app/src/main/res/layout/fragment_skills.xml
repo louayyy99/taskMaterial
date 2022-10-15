@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".SkillsFragment">
+    tools:context=".presentation.lastFragment.SkillsFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/skills_card"

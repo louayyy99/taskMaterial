@@ -1,7 +1,8 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.louay.taskcv.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation.lastFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,11 +14,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class SkillsFragment : Fragment() {
     private lateinit var binding: FragmentSkillsBinding
     private lateinit var secondData: SecondData
-    private val sfViewModel: SecondFragmentViewModel by viewModels()
+    private val lfViewModel: LastFragmentViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sfViewModel.getSecondData { secondData = it!! }
+        lfViewModel.getSecondData { secondData = it!! }
         binding.androidBar.isEnabled = false
         binding.iosBar.isEnabled = false
         binding.flutterBar.isEnabled = false

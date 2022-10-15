@@ -1,4 +1,4 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

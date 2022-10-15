@@ -1,4 +1,4 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation.lastFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,11 +14,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class HobbiesFragment : Fragment() {
     private lateinit var binding: FragmentHobbiesBinding
     private lateinit var secondData: SecondData
-    private val sfViewModel: SecondFragmentViewModel by viewModels()
+    private val lfViewModel: LastFragmentViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sfViewModel.getSecondData { secondData = it!! }
+        lfViewModel.getSecondData { secondData = it!! }
         binding.sportsCheckBox.isEnabled = false
         binding.musivCheckBox.isEnabled = false
         binding.gamesCheckBox.isEnabled = false

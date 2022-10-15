@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LastFragment">
+    tools:context=".presentation.lastFragment.LastFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/skills_card"
@@ -31,7 +31,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragmentContainerView2"
-                android:name="com.louay.taskcv.SkillsFragment"
+                android:name="com.louay.taskcv.presentation.lastFragment.SkillsFragment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

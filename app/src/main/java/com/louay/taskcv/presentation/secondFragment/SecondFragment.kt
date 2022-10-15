@@ -1,4 +1,4 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation.secondFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.louay.taskcv.R
 import com.louay.taskcv.data.secondFragment.dto.DataRequest
 import com.louay.taskcv.databinding.FragmentSecondBinding
 import com.louay.taskcv.utils.UiState

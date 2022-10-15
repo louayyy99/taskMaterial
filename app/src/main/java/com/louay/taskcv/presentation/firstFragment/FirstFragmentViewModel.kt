@@ -1,17 +1,16 @@
-package com.louay.taskcv
+package com.louay.taskcv.presentation.firstFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.louay.taskcv.data.secondFragment.dto.DataRequest
-import com.louay.taskcv.domain.secondFragment.Repo
-import com.louay.taskcv.domain.secondFragment.entity.SecondData
+import com.louay.taskcv.data.firstFragment.dto.DataRequest
+import com.louay.taskcv.domain.firstFragment.Repo
 import com.louay.taskcv.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SecondFragmentViewModel @Inject constructor(
+class FirstFragmentViewModel @Inject constructor(
     private val repo: Repo,
 ) :
     ViewModel() {
@@ -24,9 +23,5 @@ class SecondFragmentViewModel @Inject constructor(
         repo.saveData(dataRequest) {
             _state.value = it
         }
-    }
-
-    fun getSecondData(result: (SecondData?) -> Unit) {
-        repo.getSecondData(result)
     }
 }
