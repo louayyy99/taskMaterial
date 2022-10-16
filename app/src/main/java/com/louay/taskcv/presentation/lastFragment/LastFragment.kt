@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.louay.taskcv.R
 import com.louay.taskcv.databinding.FragmentLastBinding
 import com.louay.taskcv.domain.firstFragment.entity.FirstData
@@ -45,6 +46,9 @@ class LastFragment : Fragment() {
         lfViewModel.getFirstData { firstData = it!! }
         binding.email.text = firstData.email
         binding.name.text = firstData.name
+        binding.career.setOnClickListener {
+            findNavController().navigate(R.id.action_lastFragment_to_careerFragment)
+        }
     }
 
     override fun onCreateView(

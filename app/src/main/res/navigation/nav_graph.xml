@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/careerFragment">
 
     <fragment
         android:id="@+id/firstFragment"
@@ -27,7 +27,11 @@
         android:id="@+id/lastFragment"
         android:name="com.louay.taskcv.presentation.lastFragment.LastFragment"
         android:label="fragment_last"
-        tools:layout="@layout/fragment_last" />
+        tools:layout="@layout/fragment_last" >
+        <action
+            android:id="@+id/action_lastFragment_to_careerFragment"
+            app:destination="@id/careerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hobbiesFragment"
         android:name="com.louay.taskcv.presentation.lastFragment.HobbiesFragment"
@@ -43,4 +47,9 @@
         android:name="com.louay.taskcv.presentation.lastFragment.LanguageFragment"
         android:label="fragment_language"
         tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/careerFragment"
+        android:name="com.louay.taskcv.presentation.careerFragment.CareerFragment"
+        android:label="fragment_career"
+        tools:layout="@layout/fragment_career" />
 </navigation>
